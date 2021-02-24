@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-public class UserServiceModel extends BaseServiceModel{
+public class UserServiceModel extends BaseServiceModel {
     private String username;
     private String password;
     private String email;

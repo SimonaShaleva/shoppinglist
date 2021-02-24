@@ -38,16 +38,16 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute("userRegisterBindingModel")
-                               UserRegisterBindingModel userRegisterBindingModel,
+                                       UserRegisterBindingModel userRegisterBindingModel,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes) {
         boolean areTheSame = userRegisterBindingModel.getPassword()
                 .equals(userRegisterBindingModel.getConfirmPassword());
         //todo how to show message that the two passwords are different
         if (bindingResult.hasErrors() || !areTheSame) {
-            redirectAttributes.addFlashAttribute("userRegisterBindingModel",userRegisterBindingModel);
+            redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.userRegisterBindingModel",bindingResult);
+                    "org.springframework.validation.BindingResult.userRegisterBindingModel", bindingResult);
             return "redirect:register";
         }
 
@@ -68,13 +68,13 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginPost(@Valid @ModelAttribute("userLoginBindingModel")
-                                       UserLoginBindingModel userLoginBindingModel,
-                               BindingResult bindingResult, RedirectAttributes redirectAttributes,
-                               HttpSession httpSession) {
+                                    UserLoginBindingModel userLoginBindingModel,
+                            BindingResult bindingResult, RedirectAttributes redirectAttributes,
+                            HttpSession httpSession) {
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("userLoginBindingModel",userLoginBindingModel);
+            redirectAttributes.addFlashAttribute("userLoginBindingModel", userLoginBindingModel);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.userLoginBindingModel",bindingResult);
+                    "org.springframework.validation.BindingResult.userLoginBindingModel", bindingResult);
             return "redirect:login";
         }
 

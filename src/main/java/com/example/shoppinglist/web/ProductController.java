@@ -38,13 +38,13 @@ public class ProductController {
 
     @PostMapping("/add")
     public String addProductPost(@Valid @ModelAttribute("productAddBindingModel")
-                                             ProductAddBindingModel productAddBindingModel,
+                                         ProductAddBindingModel productAddBindingModel,
                                  BindingResult bindingResult,
                                  RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("productAddBindingModel", productAddBindingModel);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.productAddBindingModel",bindingResult);
+                    "org.springframework.validation.BindingResult.productAddBindingModel", bindingResult);
             return "redirect:add";
         }
 
